@@ -57,11 +57,11 @@ function create_customer(&$kassir)
     $customer = new Customer(rand(1, 5));					//инициализируется объект класса Customer
     if($kassir)									//если есть рабочие кассы
     {
-		usort($kassir, function($kassir1,$kassir2)			//массив сортируется по возрастанию кол-ва чел. в очереди
-			  {
-				  if($kassir1->queue == $kassir2->queue) return 0;
-				  return ($kassir1->queue > $kassir2->queue) ? 1 : -1;
-			  });
+	usort($kassir, function($kassir1,$kassir2)				//массив сортируется по возрастанию кол-ва чел. в очереди
+	{
+		if($kassir1->queue == $kassir2->queue) return 0;
+		return ($kassir1->queue > $kassir2->queue) ? 1 : -1;
+	});
 		
         if(count($kassir[0]->queue) < N_QUEUE || count($kassir) == N_KASS)	//если место в очереди есть или все кассы работают
         {
@@ -84,7 +84,7 @@ function create_customer(&$kassir)
 //создание кассира
 function create_kassir(&$kassir, $customer)
 {
-	$kassa = new Kassir();
+    $kassa = new Kassir();
     $kassa->queue[] = $customer;
     $kassir[] = $kassa;
 }
@@ -105,16 +105,16 @@ function output_log($i, $kassir)
     $fd = fopen($filename, 'a') or die("Не удалось создать/открыть файл");	//файл открывается
     
     //fwrite($fd, $i."\n");							//для лога по минутам (тек.минута)
-	fwrite($fd, ($i/60)." час\n");						//для лога по часам (тек.час)
+    fwrite($fd, ($i/60)." час\n");						//для лога по часам (тек.час)
     if($kassir)									//есть рабочие кассы
     {
         for($j=1; $j<=count($kassir); $j++)					//перебираются все кассы
         {
-			//для лога по часам:
+	    //для лога по часам:
             fwrite($fd, "Касса ".$j.". В очереди: ".count($kassir[$j-1]->queue)." чел.\n");	
 			
-			//для лога по минутам:
-			//fwrite($fd, $j.". ".$kassir[$j-1]->until." ".$kassir[$j-1]->delay." ".count($kassir[$j-1]->queue)."\n");
+	    //для лога по минутам:
+	    //fwrite($fd, $j.". ".$kassir[$j-1]->until." ".$kassir[$j-1]->delay." ".count($kassir[$j-1]->queue)."\n");
         }
     }
     else
@@ -175,7 +175,7 @@ for($t_current = 1; $t_current <= 60 * SMENA; $t_current++)			//каждая и�
     if(!($t_current % 60))							//каждый час выводим лог
     {
         output_log($t_current, $kassir);
-	}
+    }
 }
 echo "Обслужено за день: ", $n_customers, "\nФайл создан и лежит в папке с файлом кода";
 ?>
