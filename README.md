@@ -12,8 +12,13 @@
 4. Добавить путь до php.exe в Path (переменную Path создать или изменить, разделяя пути знаком ;)
 5. Или даблклик по переменной и добавить в конец списка (например, E:\Учеба\Web-программирование\OSPanel\modules\php\PHP-7.2)
 
+![](https://github.com/kalina-iva/Queue-in-the-store/blob/master/images/%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F.png)
+
+
 ### Запуск
 
 1. Запустить командную строку (Win+R -> cmd)
 2. Ввести "cd путь_до_скрипта"
 3. Ввести "php имя_скрипта.php"
+
+![](https://github.com/kalina-iva/Queue-in-the-store/blob/master/images/%D0%BA%D0%BE%D0%BD%D1%81%D0%BE%D0%BB%D1%8C.png)
