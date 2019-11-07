@@ -19,6 +19,6 @@
 
 1. Запустить командную строку (Win+R -> cmd)
 2. Ввести "cd путь_до_скрипта"
-3. Ввести "php имя_скрипта.php"
+3. Ввести "php Main.php"
 
 ![](https://github.com/kalina-iva/Queue-in-the-store/blob/master/images/%D0%BA%D0%BE%D0%BD%D1%81%D0%BE%D0%BB%D1%8C.png)
